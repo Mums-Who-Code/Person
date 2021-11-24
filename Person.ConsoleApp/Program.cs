@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------- 
-// Copyright (c) MumsWhoCode. Learn,. All rights reserved. 
+// Copyright (c) MumsWhoCode. All rights reserved. 
 // ---------------------------------------------------------------
 
 using System;
