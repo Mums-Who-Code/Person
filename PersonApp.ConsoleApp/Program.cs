@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Person.ConsoleApp
+namespace PersonApp.ConsoleApp
 {
     internal class Program
     {
