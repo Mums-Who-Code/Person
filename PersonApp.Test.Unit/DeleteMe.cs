@@ -4,12 +4,12 @@
 
 using Xunit;
 
-namespace PersonApp.Test.Unit
+namespace PersonApp.Tests.Unit
 {
     public class DeleteMe
     {
         [Fact]
-        public void ShouldBeTrue()
+        public void ShouldBeTrue() =>
         {
             Assert.True(true);
         }
