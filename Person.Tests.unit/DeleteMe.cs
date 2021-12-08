@@ -10,7 +10,6 @@ namespace Person.Tests.unit
     {
         [Fact]
         public void ShouldBeTrue() =>
-
-            Assert.True(true);
+        Assert.True(true);
     }
 }
