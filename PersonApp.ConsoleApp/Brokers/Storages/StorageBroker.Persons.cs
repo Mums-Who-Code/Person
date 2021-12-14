@@ -5,7 +5,6 @@
 using System.Collections.Generic;
 using PersonApp.ConsoleApp.Models.Persons;
 
-
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
     internal partial class StorageBroker : IStorageBroker
@@ -14,10 +13,9 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
 
         public Persons InsertPersons(Persons Persons)
         {
-            Persons.Add(Persons);
+           persons.Add(Persons);
 
             return Persons;
         }
     }
-
 }
