@@ -4,9 +4,9 @@
 
 using System;
 
-namespace PersonApp.ConsoleApp.Models.Persons
+namespace PersonApp.ConsoleApp.Models.Person
 {
-    internal class Persons
+    internal class Person
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
