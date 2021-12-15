@@ -4,7 +4,7 @@
 
 using System;
 
-namespace PersonApp.ConsoleApp.Models.Person
+namespace PersonApp.ConsoleApp.Models.Persons
 {
     internal class Person
     {

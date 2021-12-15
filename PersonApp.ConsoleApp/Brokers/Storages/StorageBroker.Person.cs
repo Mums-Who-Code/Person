@@ -3,19 +3,21 @@
 // ------------------------------------------------
 
 using System.Collections.Generic;
-using PersonApp.ConsoleApp.Models.Person;
+using PersonApp.ConsoleApp.Models.Persons;
 
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
     internal partial class StorageBroker : IStorageBroker
     {
-        List<Person> persons = new List<Person>();
+        List<Person> Persons = new List<Person>();
 
-        public Person InsertPersons(Person Person)
+        public Person InsertPerson(Person Person)
         {
-           persons.Add(Person);
+            Persons.Add(Person);
 
             return Person;
+
+       
         }
     }
 }
