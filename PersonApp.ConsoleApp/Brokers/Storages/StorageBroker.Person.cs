@@ -16,8 +16,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
             Persons.Add(Person);
 
             return Person;
-
-       
         }
     }
 }

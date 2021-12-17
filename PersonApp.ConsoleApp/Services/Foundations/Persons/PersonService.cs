@@ -12,13 +12,10 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
     {
         private readonly IStorageBroker storageBroker;
 
-        
-        
-            public PersonService(IStorageBroker storageBroker) =>
+         public PersonService(IStorageBroker storageBroker) =>
                 this.storageBroker = storageBroker;
 
             public Person AddPerson(Person person) =>
              throw new NotImplementedException();
-        
-    }
+        }
 }

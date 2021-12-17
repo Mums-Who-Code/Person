@@ -20,8 +20,7 @@ namespace Person.Tests.unit.Services.Foundations.Persons
 
             this.personServices = new PersonService(
                  this.storageBrokerMock.Object);
-
-        }
+         }
     }
 }
 
