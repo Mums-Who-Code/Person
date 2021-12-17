@@ -8,6 +8,8 @@ using PersonApp.ConsoleApp.Models.Persons;
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
     public partial class StorageBroker : IStorageBroker
+    internal partial class StorageBroker : IStorageBroker
+
     {
         List<Person> Persons = new List<Person>();
 
