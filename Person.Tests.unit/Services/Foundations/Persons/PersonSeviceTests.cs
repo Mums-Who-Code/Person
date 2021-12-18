@@ -6,7 +6,6 @@ using Moq;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
 
-
 namespace Person.Tests.unit.Services.Foundations.Persons
 {
     public partial class PersonSeviceTests
@@ -23,4 +22,3 @@ namespace Person.Tests.unit.Services.Foundations.Persons
          }
     }
 }
-
