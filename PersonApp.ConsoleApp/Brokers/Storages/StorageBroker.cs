@@ -6,5 +6,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
 {
     public partial class StorageBroker : IStorageBroker
     {
+
     }
 }
