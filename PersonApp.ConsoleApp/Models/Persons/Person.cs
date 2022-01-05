@@ -2,11 +2,9 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System;
-
 namespace PersonApp.ConsoleApp.Models.Persons
 {
-    internal class Person
+    public class Person
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

@@ -4,10 +4,10 @@
 
 using PersonApp.ConsoleApp.Models.Persons;
 
-namespace PersonApp.ConsoleApp.Brokers.Storages
+namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
-    public partial interface IStorageBroker
+    public interface IPersonService
     {
-        Person InsertPerson(Person Person);
+        Person ADDPerson(Person person);
     }
 }

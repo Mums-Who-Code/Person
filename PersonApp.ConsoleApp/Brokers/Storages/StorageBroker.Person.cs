@@ -7,7 +7,7 @@ using PersonApp.ConsoleApp.Models.Persons;
 
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
-    internal partial class StorageBroker : IStorageBroker
+    public partial class StorageBroker : IStorageBroker
     {
         List<Person> Persons = new List<Person>();
 
@@ -17,7 +17,7 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
 
             return Person;
 
-       
+
         }
     }
 }
