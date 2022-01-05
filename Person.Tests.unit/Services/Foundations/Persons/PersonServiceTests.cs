@@ -19,7 +19,6 @@ namespace Person.Tests.unit.Services.Foundations.Persons
 
             this.personService = new PersonService(
                 storageBroker: this.storagebrokermock.Object);
-
         }
     }
 }
