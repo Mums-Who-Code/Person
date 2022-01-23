@@ -4,11 +4,13 @@
 
 using Moq;
 using PersonApp.ConsoleApp.Brokers.Storages;
+using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
+using Tynamix.ObjectFiller;
 
-namespace Person.Tests.unit.Services.Foundations.Persons
+namespace PersonApp.Tests.unit.Services.Foundations.Persons
 {
-    internal class PersonServiceTests
+    public partial class PersonServiceTests
     {
         private readonly Mock<IStorageBroker> storagebrokermock;
         private readonly IPersonService personService;
@@ -18,7 +20,14 @@ namespace Person.Tests.unit.Services.Foundations.Persons
             this.storagebrokermock = new Mock<IStorageBroker>();
 
             this.personService = new PersonService(
-                storageBroker: this.storagebrokermock.Object);
+                 this.storagebrokermock.Object);
+        }
+      
+        private static Person CreateRandomPerson() =>
+          CreatePersonFiller().Create();
+        
+
+        private static Filler<Person> CreatePersonFiller() =>
+            new Filler<Person>();
         }
     }
-}

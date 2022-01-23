@@ -4,7 +4,7 @@
 
 using Xunit;
 
-namespace Person.Tests.unit
+namespace PersonApp.Tests.unit
 {
     public class DeleteMe
     {
