@@ -3,6 +3,7 @@
 // ------------------------------------------------
 
 using FluentAssertions;
+using Force.DeepCloner;
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
 using Xunit;
@@ -18,13 +19,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Person randomperson = CreateRandomPerson();
             Person inputPerson = randomperson ;
             Person presistedPerson = inputPerson;
-            Person expectedPerson = presistedPerson;
+            Person expectedPerson = presistedPerson.DeepClone();
            
             this.storagebrokermock.Setup(broker =>
-            broker.InsertPerson(presistedPerson))
+            broker.InsertPerson(inputPerson))
                 .Returns(presistedPerson);
             //when
-             Person actualperson = this.personService.ADDPerson(presistedPerson);
+             Person actualperson = this.personService.ADDPerson(inputPerson);
             
             //then
             actualperson.Should().BeEquivalentTo(expectedPerson);

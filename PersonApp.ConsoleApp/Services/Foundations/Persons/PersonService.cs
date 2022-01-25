@@ -15,7 +15,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         public PersonService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
-        public Person ADDPerson(Person person) =>
-          throw new NotImplementedException();
+        public Person ADDPerson(Person person)=>
+        this.storageBroker.InsertPerson(person);
     }
 }
