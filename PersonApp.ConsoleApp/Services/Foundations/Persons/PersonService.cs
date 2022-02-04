@@ -2,7 +2,7 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System;
+using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
 
@@ -11,11 +11,17 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
     public class PersonService : IPersonService
     {
         private readonly IStorageBroker storageBroker;
+        private readonly ILoggingBroker loggingbroker;
 
-        public PersonService(IStorageBroker storageBroker) =>
+        public PersonService(IStorageBroker storageBroker, 
+                             ILoggingBroker loggingbroker)
+        
+        {
             this.storageBroker = storageBroker;
+            this.loggingbroker = loggingbroker;
+        }
 
         public Person ADDPerson(Person person)=>
-        this.storageBroker.InsertPerson(person);
+            this.storageBroker.InsertPerson(person);
     }
 }
