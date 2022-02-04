@@ -34,6 +34,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
            broker.InsertPerson(inputPerson), Times.Once);
 
             this.storagebrokermock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
                 
         }
     }
