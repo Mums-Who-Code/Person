@@ -15,18 +15,18 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         [Fact]
         public void ShouldAddPerson()
         {
-           //given
+            //given
             Person randomperson = CreateRandomPerson();
-            Person inputPerson = randomperson ;
+            Person inputPerson = randomperson;
             Person presistedPerson = inputPerson;
             Person expectedPerson = presistedPerson.DeepClone();
-           
+
             this.storagebrokermock.Setup(broker =>
             broker.InsertPerson(inputPerson))
                 .Returns(presistedPerson);
             //when
-             Person actualperson = this.personService.ADDPerson(inputPerson);
-            
+            Person actualperson = this.personService.ADDPerson(inputPerson);
+
             //then
             actualperson.Should().BeEquivalentTo(expectedPerson);
 
@@ -35,7 +35,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.storagebrokermock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
-                
+
         }
     }
 }

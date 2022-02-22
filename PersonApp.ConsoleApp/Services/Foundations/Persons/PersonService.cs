@@ -8,20 +8,25 @@ using PersonApp.ConsoleApp.Models.Persons;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
-    public class PersonService : IPersonService
+    public partial class PersonService : IPersonService
     {
         private readonly IStorageBroker storageBroker;
         private readonly ILoggingBroker loggingbroker;
 
-        public PersonService(IStorageBroker storageBroker, 
+        public PersonService(IStorageBroker storageBroker,
                              ILoggingBroker loggingbroker)
-        
+
         {
             this.storageBroker = storageBroker;
             this.loggingbroker = loggingbroker;
         }
 
-        public Person ADDPerson(Person person)=>
-            this.storageBroker.InsertPerson(person);
+
+        public Person ADDPerson(Person person) =>
+                Trycatch(() =>
+            {
+                ValidatePerson(person);
+                return this.storageBroker.InsertPerson(person);
+            });
     }
 }

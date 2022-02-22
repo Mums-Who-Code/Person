@@ -23,7 +23,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         public PersonServiceTests()
         {
             this.storagebrokermock = new Mock<IStorageBroker>();
-            this.loggingBrokerMock= new Mock<ILoggingBroker>();
+            this.loggingBrokerMock = new Mock<ILoggingBroker>();
 
             this.personService = new PersonService(
                 storageBroker: this.storagebrokermock.Object,
@@ -38,9 +38,9 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
         private Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
-        
+
 
         private static Filler<Person> CreatePersonFiller() =>
             new Filler<Person>();
-        }
     }
+}
