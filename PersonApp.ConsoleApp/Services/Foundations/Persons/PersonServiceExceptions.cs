@@ -12,7 +12,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         private delegate Person ReturningPersonFunction();
 
         private Person Trycatch(ReturningPersonFunction returningPersonFunction)
-
         {
             try
             {
@@ -30,9 +29,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             var personValidationException = new PersonvalidationException(exception);
             this.loggingbroker.LogError(personValidationException);
 
-
-            throw personValidationException;
+            return personValidationException;
         }
     }
-
 }

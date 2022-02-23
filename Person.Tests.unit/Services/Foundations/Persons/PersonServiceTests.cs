@@ -29,11 +29,12 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 storageBroker: this.storagebrokermock.Object,
                 loggingbroker: this.loggingBrokerMock.Object);
         }
-        private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedexception)
+        private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
         {
             return actualException =>
-            actualException.Message == expectedexception.Message
-            && actualException.InnerException.Message == expectedexception.InnerException.Message;
+            actualException.Message == expectedException.Message
+            && actualException.InnerException.Message == expectedException.InnerException.Message
+             && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
 
         private Person CreateRandomPerson() =>
