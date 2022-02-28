@@ -18,7 +18,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         {
             // given
             Person nullPerson = null;
-            var nullPersonException = new NullPersonException();
+              var nullPersonException = new NullPersonException();
 
             var exceptedPersonValidationException =
                 new PersonvalidationException(nullPersonException);
