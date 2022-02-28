@@ -14,7 +14,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public async Task ShouldThrowValidationExceptionOnAddIfPersonIsNullAndLogIt()
+        public void  ShouldThrowValidationExceptionOnAddIfPersonIsNullAndLogIt()
         {
             // given
             Person nullPerson = null;
@@ -47,7 +47,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         [InlineData("")]
         [InlineData("  ")]
 
-        public async Task ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
+        public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
             string invalidFirstName)
         {
             //given 
