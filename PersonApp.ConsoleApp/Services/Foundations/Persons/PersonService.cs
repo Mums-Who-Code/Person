@@ -25,7 +25,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         public Person ADDPerson(Person person) =>
           Trycatch(() =>
             {
-                ValidatePerson(person);
+                Validate(person);
 
                 return this.storageBroker.InsertPerson(person);
             });

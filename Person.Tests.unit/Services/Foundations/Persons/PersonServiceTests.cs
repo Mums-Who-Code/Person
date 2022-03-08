@@ -34,10 +34,10 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             return actualException =>
             actualException.Message == expectedException.Message
             && actualException.InnerException.Message == expectedException.InnerException.Message
-             && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
+            && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
 
-        private Person CreateRandomPerson() =>
+        private static Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
 
 

@@ -24,7 +24,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 new PersonvalidationException(nullPersonException);
 
             //when
-            Action addPersonAction = () => this.personService.ADDPerson(nullPerson);
+            Action addPersonAction = () => personService.ADDPerson(nullPerson);
 
             //then
             Assert.Throws<PersonvalidationException>(addPersonAction);
@@ -51,10 +51,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             string invalidFirstName)
         {
             //given 
-            Person invalidPerson = new Person
+            Person invalidPerson = new Person 
             {
-                FirstName = invalidFirstName,
+                FirstName = invalidFirstName
             };
+
             var invalidPersonException = new InvalidPersonException();
 
             invalidPersonException.AddData(
@@ -66,7 +67,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 values: " FirstName is required.");
 
 
-            var exceptedPersonvalidationException = new PersonvalidationException(invalidPersonException);
+            var exceptedPersonvalidationException = 
+                new PersonvalidationException(invalidPersonException);
 
             //when 
             Action addPersonAction = () => this.personService.ADDPerson(invalidPerson);

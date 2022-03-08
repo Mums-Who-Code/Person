@@ -21,6 +21,10 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             {
                 throw CreateAndlogValidationException(nullPersonException);
             }
+            catch(InvalidPersonException invalidPersonException) 
+            { 
+                throw CreateAndlogValidationException(invalidPersonException);
+            }
 
 
         }
@@ -29,7 +33,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             var personValidationException = new PersonvalidationException(exception);
             this.loggingbroker.LogError(personValidationException);
 
-            return personValidationException;
+           throw personValidationException;
         }
     }
 }
