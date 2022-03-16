@@ -40,8 +40,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         private static Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
 
-
-        private static Filler<Person> CreatePersonFiller() =>
+       private static Filler<Person> CreatePersonFiller() =>
             new Filler<Person>();
     }
 }

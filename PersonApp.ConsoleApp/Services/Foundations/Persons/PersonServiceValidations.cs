@@ -9,7 +9,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
     public partial class PersonService
     {
-        private static void ValidationPerson(Person person)
+        private static void ValidatePerson(Person person)
         {
             ValidatePersonIsNotNull(person);
 
@@ -17,7 +17,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
                 (Rule: IsInvalid(person.Id), Parameter: nameof(Person.Id)),
                 (Rule: IsInvalid(person.FirstName), Parameter: nameof(Person.FirstName)));
         }
-        
 
         private static dynamic IsInvalid(int id) => new
         {
@@ -28,7 +27,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         private static dynamic IsInvalid(string firstname) => new
         {
             Condition = String.IsNullOrWhiteSpace(firstname),
-            Message = "FirstName is required"
+            Message = "FirstName is required."
         };
 
         private static void ValidatePersonIsNotNull(Person person)
@@ -43,7 +42,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         {
             var invalidPersonException = new InvalidPersonException();
 
-            foreach ((dynamic rule, string parameter) in  validations)
+            foreach ((dynamic rule, string parameter) in validations)
             {
                 if (rule.Condition)
                 {
@@ -51,10 +50,8 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
                         key: parameter,
                         value: rule.Message);
                 }
-
             }
-
-            invalidPersonException.ThrowIfContainsErrors();
+         invalidPersonException.ThrowIfContainsErrors();
         }
     }
 }

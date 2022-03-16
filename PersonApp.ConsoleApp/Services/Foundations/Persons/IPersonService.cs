@@ -8,6 +8,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
     public interface IPersonService
     {
-        Person ADDPerson(Person person);
+        Person AddPerson(Person person);
     }
 }

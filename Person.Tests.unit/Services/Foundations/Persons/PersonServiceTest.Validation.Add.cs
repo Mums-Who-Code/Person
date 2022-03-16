@@ -3,7 +3,6 @@
 // ------------------------------------------------
 
 using System;
-using System.Threading.Tasks;
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
@@ -14,17 +13,17 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public void  ShouldThrowValidationExceptionOnAddIfPersonIsNullAndLogIt()
+        public void ShouldThrowValidationExceptionOnAddIfPersonIsNullAndLogIt()
         {
             // given
             Person nullPerson = null;
-              var nullPersonException = new NullPersonException();
+            var nullPersonException = new NullPersonException();
 
             var exceptedPersonValidationException =
                 new PersonvalidationException(nullPersonException);
 
             //when
-            Action addPersonAction = () => personService.ADDPerson(nullPerson);
+            Action addPersonAction = () => personService.AddPerson(nullPerson);
 
             //then
             Assert.Throws<PersonvalidationException>(addPersonAction);
@@ -47,11 +46,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         [InlineData("")]
         [InlineData("  ")]
 
-        public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
+         public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
             string invalidFirstName)
         {
             //given 
-            Person invalidPerson = new Person 
+            Person invalidPerson = new Person
             {
                 FirstName = invalidFirstName
             };
@@ -60,18 +59,19 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             invalidPersonException.AddData(
                 key: nameof(Person.Id),
-                values: "ID is Required. ");
+                values: "ID is required.");
 
             invalidPersonException.AddData(
                 key: nameof(Person.FirstName),
-                values: " FirstName is required.");
+                values: "FirstName is required.");
 
 
-            var exceptedPersonvalidationException = 
+            var exceptedPersonvalidationException =
                 new PersonvalidationException(invalidPersonException);
 
             //when 
-            Action addPersonAction = () => this.personService.ADDPerson(invalidPerson);
+            Action addPersonAction = () => 
+               this.personService.AddPerson(invalidPerson);
 
             ///then
 
@@ -90,4 +90,4 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storagebrokermock.VerifyNoOtherCalls();
         }
     }
- }
+}

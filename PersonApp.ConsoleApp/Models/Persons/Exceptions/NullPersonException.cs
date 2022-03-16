@@ -11,6 +11,5 @@ namespace PersonApp.ConsoleApp.Models.Persons.Exceptions
         public NullPersonException()
             : base(message: "person is null.")
         { }
-
     }
 }

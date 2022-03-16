@@ -21,19 +21,18 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             {
                 throw CreateAndlogValidationException(nullPersonException);
             }
-            catch(InvalidPersonException invalidPersonException) 
-            { 
+            catch (InvalidPersonException invalidPersonException)
+            {
                 throw CreateAndlogValidationException(invalidPersonException);
             }
-
-
         }
+
         private PersonvalidationException CreateAndlogValidationException(Xeption exception)
         {
             var personValidationException = new PersonvalidationException(exception);
             this.loggingbroker.LogError(personValidationException);
 
-           throw personValidationException;
+            throw personValidationException;
         }
     }
 }

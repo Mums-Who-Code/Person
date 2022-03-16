@@ -25,13 +25,14 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             broker.InsertPerson(inputPerson))
                 .Returns(presistedPerson);
             //when
-            Person actualperson = this.personService.ADDPerson(inputPerson);
+            Person actualperson = this.personService.AddPerson(inputPerson);
 
             //then
             actualperson.Should().BeEquivalentTo(expectedPerson);
 
             this.storagebrokermock.Verify(broker =>
-           broker.InsertPerson(inputPerson), Times.Once);
+                 broker.InsertPerson(inputPerson),
+                    Times.Once);
 
             this.storagebrokermock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
