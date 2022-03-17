@@ -46,7 +46,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         [InlineData("")]
         [InlineData("  ")]
 
-         public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
+        public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
             string invalidFirstName)
         {
             //given 
@@ -70,7 +70,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 new PersonvalidationException(invalidPersonException);
 
             //when 
-            Action addPersonAction = () => 
+            Action addPersonAction = () =>
                this.personService.AddPerson(invalidPerson);
 
             ///then

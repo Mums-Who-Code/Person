@@ -9,5 +9,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
     public partial interface IStorageBroker
     {
         Person InsertPerson(Person Person);
+
     }
 }

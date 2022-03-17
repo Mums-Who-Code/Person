@@ -51,7 +51,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
                         value: rule.Message);
                 }
             }
-         invalidPersonException.ThrowIfContainsErrors();
+            invalidPersonException.ThrowIfContainsErrors();
         }
     }
 }
