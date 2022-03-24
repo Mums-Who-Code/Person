@@ -3,6 +3,7 @@
 // ------------------------------------------------
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
+using System;
 using Xeptions;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
@@ -25,6 +26,13 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             {
                 throw CreateAndlogValidationException(invalidPersonException);
             }
+            catch (Exception exception)
+            {
+                var failedPersonException =
+                    new FailedPersonServiceException(exception);
+
+                throw CreateAndlogServiceException(failedPersonException);
+            }
         }
 
         private PersonvalidationException CreateAndlogValidationException(Xeption exception)
@@ -32,7 +40,16 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             var personValidationException = new PersonvalidationException(exception);
             this.loggingbroker.LogError(personValidationException);
 
-            throw personValidationException;
+            return personValidationException;
         }
+
+        private PersonServiceException CreateAndlogServiceException(Xeption exception)
+        {
+            var personServiceException = new PersonServiceException(exception);
+            this.loggingbroker.LogError(personServiceException);
+
+            return personServiceException;
+        }
+
     }
 }
