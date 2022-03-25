@@ -23,7 +23,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
 
         public Person AddPerson(Person person) =>
-
           Trycatch(() =>
             {
                 ValidatePerson(person);

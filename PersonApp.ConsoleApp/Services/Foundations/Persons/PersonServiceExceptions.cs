@@ -50,6 +50,5 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return personServiceException;
         }
-
     }
 }

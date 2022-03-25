@@ -13,43 +13,42 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public void ShouldThrowServiceExceptionOnAddIfServiceErrorOccureAndLogIt()
+        public void ShouldThrowServiceExceptionOnAddIfServiceErrorOccurAndLogIt()
         {
             //given
-            Person someperson = CreateRandomPerson();
-            var ServiceException = new Exception();
+           Person somePerson = CreateRandomPerson();
+             var serviceException = new Exception();
 
-            var failedPersonServiceException =
-                new FailedPersonServiceException(ServiceException);
+           var failedPersonServiceException =
+              new FailedPersonServiceException(
+                    serviceException);
 
-            var expectedPersonServiceException =
-                new PersonServiceException(
+           var expectedPersonServiceException =
+               new PersonServiceException(
                     failedPersonServiceException);
 
-            this.storagebrokermock.Setup(broker =>
+           this.storagebrokermock.Setup(broker =>
               broker.InsertPerson(It.IsAny<Person>()))
-               .Throws(ServiceException);
+               .Throws(serviceException);
 
+           //when
+           Action addPersonAction = () => 
+              this.personService.AddPerson(somePerson);
 
-            //when
-            Action addPersonAction = () => this.personService.AddPerson(someperson);
+          //then
+           Assert.Throws<PersonServiceException>(addPersonAction);
 
-
-            //then
-            Assert.Throws<PersonServiceException>(addPersonAction);
-
-            this.storagebrokermock.Verify(broker =>
+           this.storagebrokermock.Verify(broker =>
               broker.InsertPerson(It.IsAny<Person>()),
                Times.Once());
 
-            this.loggingBrokerMock.Verify(broker =>
+           this.loggingBrokerMock.Verify(broker =>
              broker.LogError(It.Is(SameExceptionAs(
                  expectedPersonServiceException))),
                Times.Once);
 
-            this.storagebrokermock.VerifyNoOtherCalls();
-            this.loggingBrokerMock.VerifyNoOtherCalls();
-
+           this.storagebrokermock.VerifyNoOtherCalls();
+           this.loggingBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
