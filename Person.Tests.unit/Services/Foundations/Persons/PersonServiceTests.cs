@@ -16,17 +16,17 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 {
     public partial class PersonServiceTests
     {
-        private readonly Mock<IStorageBroker> storagebrokermock;
+        private readonly Mock<IStorageBroker> storageBrokerMock;
         private readonly Mock<ILoggingBroker> loggingBrokerMock;
         private readonly IPersonService personService;
 
         public PersonServiceTests()
         {
-            this.storagebrokermock = new Mock<IStorageBroker>();
+            this.storageBrokerMock = new Mock<IStorageBroker>();
             this.loggingBrokerMock = new Mock<ILoggingBroker>();
 
             this.personService = new PersonService(
-                storageBroker: this.storagebrokermock.Object,
+                storageBroker: this.storageBrokerMock.Object,
                 loggingbroker: this.loggingBrokerMock.Object);
         }
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)

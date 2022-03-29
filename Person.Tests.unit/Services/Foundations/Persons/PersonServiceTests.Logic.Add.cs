@@ -21,7 +21,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Person presistedPerson = inputPerson;
             Person expectedPerson = presistedPerson.DeepClone();
 
-            this.storagebrokermock.Setup(broker =>
+            this.storageBrokerMock.Setup(broker =>
               broker.InsertPerson(inputPerson))
                  .Returns(presistedPerson);
             //when
@@ -30,11 +30,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             //then
             actualperson.Should().BeEquivalentTo(expectedPerson);
 
-            this.storagebrokermock.Verify(broker =>
+            this.storageBrokerMock.Verify(broker =>
                 broker.InsertPerson(inputPerson),
                     Times.Once);
 
-            this.storagebrokermock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
 
         }

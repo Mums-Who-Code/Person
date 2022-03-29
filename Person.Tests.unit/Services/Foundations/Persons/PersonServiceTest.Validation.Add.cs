@@ -33,12 +33,12 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 (exceptedPersonValidationException))),
                     Times.Once);
 
-            this.storagebrokermock.Verify(broker =>
+            this.storageBrokerMock.Verify(broker =>
                broker.InsertPerson(It.IsAny<Person>()),
                   Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
-            this.storagebrokermock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
         }
 
         [Theory]
@@ -70,24 +70,22 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 new PersonvalidationException(invalidPersonException);
 
             //when 
-            Action addPersonAction = () =>
-               this.personService.AddPerson(invalidPerson);
+            Action addPersonAction = () => this.personService.AddPerson(invalidPerson);
 
             ///then
-
-            Assert.Throws<PersonvalidationException>(addPersonAction);
+           Assert.Throws<PersonvalidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
               broker.LogError(It.Is(SameExceptionAs
                  (exceptedPersonvalidationException))),
                     Times.Once);
 
-            this.storagebrokermock.Verify(broker =>
+            this.storageBrokerMock.Verify(broker =>
                 broker.InsertPerson(It.IsAny<Person>()),
                   Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
-            this.storagebrokermock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
