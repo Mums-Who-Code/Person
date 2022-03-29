@@ -29,7 +29,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.storagebrokermock.Setup(broker =>
                broker.InsertPerson(It.IsAny<Person>()))
-                .Throws(serviceException);
+                   .Throws(serviceException);
 
             //when
             Action addPersonAction = () =>
@@ -40,12 +40,12 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.storagebrokermock.Verify(broker =>
                broker.InsertPerson(It.IsAny<Person>()),
-                  Times.Once());
+                    Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
-              broker.LogError(It.Is(SameExceptionAs
-                (expectedPersonServiceException))),
-                     Times.Once);
+               broker.LogError(It.Is(SameExceptionAs(
+                  expectedPersonServiceException))),
+                      Times.Once);
 
             this.storagebrokermock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();

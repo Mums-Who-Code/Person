@@ -29,9 +29,9 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Assert.Throws<PersonvalidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
-            broker.LogError(It.Is(SameExceptionAs
-               (exceptedPersonValidationException))),
-                  Times.Once);
+              broker.LogError(It.Is(SameExceptionAs
+                (exceptedPersonValidationException))),
+                    Times.Once);
 
             this.storagebrokermock.Verify(broker =>
                broker.InsertPerson(It.IsAny<Person>()),
