@@ -16,7 +16,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         public void ShouldThrowServiceExceptionOnAddIfServiceErrorOccurAndLogIt()
         {
             //given
-            Person somePerson = CreateRandomPerson();
+             Person somePerson = CreateRandomPerson();
             var serviceException = new Exception();
 
             var failedPersonServiceException =
