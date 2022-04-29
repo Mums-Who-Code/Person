@@ -19,7 +19,6 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         private readonly Mock<IStorageBroker> storageBrokerMock;
         private readonly Mock<ILoggingBroker> loggingBrokerMock;
         private readonly IPersonService personService;
-
         public PersonServiceTests()
         {
             this.storageBrokerMock = new Mock<IStorageBroker>();
@@ -36,10 +35,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             && actualException.InnerException.Message == expectedException.InnerException.Message
             && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
-
         private static Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
-
         private static Filler<Person> CreatePersonFiller() =>
              new Filler<Person>();
     }

@@ -65,7 +65,6 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 key: nameof(Person.FirstName),
                 values: "FirstName is required.");
 
-
             var exceptedPersonvalidationException =
                 new PersonvalidationException(invalidPersonException);
 
