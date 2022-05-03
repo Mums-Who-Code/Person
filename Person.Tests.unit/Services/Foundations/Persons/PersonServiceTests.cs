@@ -35,7 +35,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             && actualException.InnerException.Message == expectedException.InnerException.Message
             && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
-        private static Person CreateRandomPerson() =>
+        private  Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
         private static Filler<Person> CreatePersonFiller() =>
              new Filler<Person>();

@@ -10,7 +10,7 @@ using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
 {
-    partial class PersonServiceTests
+   public partial class PersonServiceTests
     {
         [Fact]
         public void ShouldAddPerson()

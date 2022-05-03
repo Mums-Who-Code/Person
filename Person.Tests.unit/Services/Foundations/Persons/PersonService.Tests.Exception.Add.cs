@@ -20,12 +20,10 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             var serviceException = new Exception();
 
             var failedPersonServiceException =
-               new FailedPersonServiceException(
-                     serviceException);
+               new FailedPersonServiceException(serviceException);
 
             var expectedPersonServiceException =
-                new PersonServiceException(
-                     failedPersonServiceException);
+                new PersonServiceException(failedPersonServiceException);
 
             this.storageBrokerMock.Setup(broker =>
                broker.InsertPerson(It.IsAny<Person>()))

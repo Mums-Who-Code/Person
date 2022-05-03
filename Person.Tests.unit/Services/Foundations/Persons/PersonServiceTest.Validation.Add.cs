@@ -18,12 +18,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             // given
             Person nullPerson = null;
             var nullPersonException = new NullPersonException();
-
             var exceptedPersonValidationException =
                 new PersonvalidationException(nullPersonException);
 
             //when
-            Action addPersonAction = () => personService.AddPerson(nullPerson);
+            Action addPersonAction = () => this.personService.AddPerson(nullPerson);
 
             //then
             Assert.Throws<PersonvalidationException>(addPersonAction);
@@ -45,12 +44,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         [InlineData(null)]
         [InlineData("")]
         [InlineData("  ")]
-
         public void ShouldThrowValidationExceptionOnAddIfPersonIsInvalidAndLogIt(
             string invalidFirstName)
         {
             //given 
-            Person invalidPerson = new Person
+            var invalidPerson = new Person
             {
                 FirstName = invalidFirstName
             };
