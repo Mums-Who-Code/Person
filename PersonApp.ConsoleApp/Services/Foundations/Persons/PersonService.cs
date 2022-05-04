@@ -14,19 +14,19 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         private readonly ILoggingBroker loggingbroker;
 
         public PersonService(IStorageBroker storageBroker,
-                             ILoggingBroker loggingbroker)
+                             ILoggingBroker loggingBroker)
 
         {
             this.storageBroker = storageBroker;
-            this.loggingbroker = loggingbroker;
+            this.loggingbroker = loggingBroker;
         }
 
         public Person AddPerson(Person person) =>
         Trycatch(() =>
         {
-                ValidatePerson(person);
+            ValidatePerson(person);
 
-                return this.storageBroker.InsertPerson(person);
+            return this.storageBroker.InsertPerson(person);
         });
     }
 }

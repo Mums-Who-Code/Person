@@ -19,6 +19,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         private readonly Mock<IStorageBroker> storageBrokerMock;
         private readonly Mock<ILoggingBroker> loggingBrokerMock;
         private readonly IPersonService personService;
+
         public PersonServiceTests()
         {
             this.storageBrokerMock = new Mock<IStorageBroker>();
@@ -26,7 +27,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.personService = new PersonService(
                 storageBroker: this.storageBrokerMock.Object,
-                loggingbroker: this.loggingBrokerMock.Object);
+                loggingBroker: this.loggingBrokerMock.Object);
         }
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
         {
@@ -35,7 +36,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
               && actualException.InnerException.Message == expectedException.InnerException.Message
               && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
-        private  Person CreateRandomPerson() =>
+
+        private Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
 
         private static Filler<Person> CreatePersonFiller() =>

@@ -9,7 +9,7 @@ namespace PersonApp.ConsoleApp.Models.Persons.Exceptions
     public class PersonServiceException : Xeption
     {
         public PersonServiceException(Xeption innerException)
-            : base(message: "Person service error occured,contact Support",
+            : base(message: "Person service error occurred,contact Support",
                   innerException)
         { }
     }

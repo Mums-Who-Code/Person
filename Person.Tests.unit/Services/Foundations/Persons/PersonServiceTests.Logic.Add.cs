@@ -10,8 +10,8 @@ using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
 {
-   public partial class PersonServiceTests
-   {
+    public partial class PersonServiceTests
+    {
         [Fact]
         public void ShouldAddPerson()
         {
@@ -24,6 +24,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storageBrokerMock.Setup(broker =>
               broker.InsertPerson(inputPerson))
                  .Returns(presistedPerson);
+
             //when
             Person actualperson = this.personService.AddPerson(inputPerson);
 
@@ -37,5 +38,5 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
-   }
+    }
 }

@@ -1,6 +1,7 @@
 ﻿// ------------------------------------------------
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
+
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using System;
@@ -20,22 +21,22 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             }
             catch (NullPersonException nullPersonException)
             {
-                throw CreateAndlogValidationException(nullPersonException);
+                throw CreateAndLogValidationException(nullPersonException);
             }
             catch (InvalidPersonException invalidPersonException)
             {
-                throw CreateAndlogValidationException(invalidPersonException);
+                throw CreateAndLogValidationException(invalidPersonException);
             }
             catch (Exception exception)
             {
-                var failedPersonException =
+                var failedPersonServiceException =
                     new FailedPersonServiceException(exception);
 
-                throw CreateAndlogServiceException(failedPersonException);
+                throw CreateAndLogServiceException(failedPersonServiceException);
             }
         }
 
-        private PersonvalidationException CreateAndlogValidationException(Xeption exception)
+        private PersonvalidationException CreateAndLogValidationException(Xeption exception)
         {
             var personValidationException = new PersonvalidationException(exception);
             this.loggingbroker.LogError(personValidationException);
@@ -43,7 +44,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             return personValidationException;
         }
 
-        private PersonServiceException CreateAndlogServiceException(Xeption exception)
+        private PersonServiceException CreateAndLogServiceException(Xeption exception)
         {
             var personServiceException = new PersonServiceException(exception);
             this.loggingbroker.LogError(personServiceException);
