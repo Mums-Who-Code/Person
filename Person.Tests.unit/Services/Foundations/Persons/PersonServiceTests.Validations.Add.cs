@@ -18,9 +18,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             // given
             Person nullPerson = null;
             var nullPersonException = new NullPersonException();
-
-            var exceptedPersonValidationException =
-                new PersonvalidationException(nullPersonException);
+            var exceptedPersonValidationException = new PersonvalidationException(nullPersonException);
 
             //when
             Action addPersonAction = () => this.personService.AddPerson(nullPerson);
@@ -68,8 +66,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 key: nameof(Person.LastName),
                 values: "Name is required.");
 
-            var exceptedPersonvalidationException =
-                new PersonvalidationException(invalidPersonException);
+            var exceptedPersonvalidationException = new PersonvalidationException(invalidPersonException);
 
             //when 
             Action addPersonAction = () => this.personService.AddPerson(invalidPerson);
