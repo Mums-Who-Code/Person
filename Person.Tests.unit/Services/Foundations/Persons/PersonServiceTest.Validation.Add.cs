@@ -28,8 +28,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Assert.Throws<PersonvalidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
-              broker.LogError(It.Is(SameExceptionAs
-                (exceptedPersonValidationException))),
+               broker.LogError(It.Is(SameExceptionAs
+                 (exceptedPersonValidationException))),
                     Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
@@ -73,12 +73,12 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
            Assert.Throws<PersonvalidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
-              broker.LogError(It.Is(SameExceptionAs
-                 (exceptedPersonvalidationException))),
-                    Times.Once);
+               broker.LogError(It.Is(SameExceptionAs
+                  (exceptedPersonvalidationException))),
+                     Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.InsertPerson(It.IsAny<Person>()),
+               broker.InsertPerson(It.IsAny<Person>()),
                   Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();

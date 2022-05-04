@@ -31,12 +31,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         private static Expression<Func<Xeption, bool>> SameExceptionAs(Xeption expectedException)
         {
             return actualException =>
-            actualException.Message == expectedException.Message
-            && actualException.InnerException.Message == expectedException.InnerException.Message
-            && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
+              actualException.Message == expectedException.Message
+              && actualException.InnerException.Message == expectedException.InnerException.Message
+              && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
         private  Person CreateRandomPerson() =>
           CreatePersonFiller().Create();
+
         private static Filler<Person> CreatePersonFiller() =>
              new Filler<Person>();
     }

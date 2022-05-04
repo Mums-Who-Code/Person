@@ -21,12 +21,12 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             this.loggingbroker = loggingbroker;
         }
 
-       public Person AddPerson(Person person) =>
-          Trycatch(() =>
-            {
+        public Person AddPerson(Person person) =>
+        Trycatch(() =>
+        {
                 ValidatePerson(person);
 
                 return this.storageBroker.InsertPerson(person);
-            });
+        });
     }
 }

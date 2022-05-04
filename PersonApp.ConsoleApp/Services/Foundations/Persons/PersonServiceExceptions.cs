@@ -42,7 +42,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return personValidationException;
         }
-       private PersonServiceException CreateAndlogServiceException(Xeption exception)
+        private PersonServiceException CreateAndlogServiceException(Xeption exception)
         {
             var personServiceException = new PersonServiceException(exception);
             this.loggingbroker.LogError(personServiceException);

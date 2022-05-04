@@ -31,8 +31,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             actualperson.Should().BeEquivalentTo(expectedPerson);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.InsertPerson(inputPerson),
-                    Times.Once);
+               broker.InsertPerson(inputPerson),
+                   Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
