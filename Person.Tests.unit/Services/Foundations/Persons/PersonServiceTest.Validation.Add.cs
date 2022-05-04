@@ -62,7 +62,11 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             invalidPersonException.AddData(
                 key: nameof(Person.FirstName),
-                values: "FirstName is required.");
+                values: "Name is required.");
+
+            invalidPersonException.AddData(
+                key: nameof(Person.LastName),
+                values: "Name is required.");
 
             var exceptedPersonvalidationException =
                 new PersonvalidationException(invalidPersonException);
@@ -70,7 +74,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             //when 
             Action addPersonAction = () => this.personService.AddPerson(invalidPerson);
 
-            ///then
+            //then
             Assert.Throws<PersonvalidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>

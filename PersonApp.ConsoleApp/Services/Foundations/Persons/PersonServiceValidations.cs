@@ -16,7 +16,8 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             Validate(
                 (Rule: IsInvalid(person.Id), Parameter: nameof(Person.Id)),
-                (Rule: IsInvalid(person.FirstName), Parameter: nameof(Person.FirstName)));
+                (Rule: IsInvalid(namevalue:person.FirstName), Parameter: nameof(Person.FirstName)),
+                (Rule: IsInvalid(namevalue:person.LastName), Parameter: nameof(Person.LastName)));
         }
 
         private static dynamic IsInvalid(int id) => new
@@ -25,10 +26,10 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             Message = "ID is required."
         };
 
-        private static dynamic IsInvalid(string firstname) => new
+        private static dynamic IsInvalid(string namevalue) => new
         {
-            Condition = String.IsNullOrWhiteSpace(firstname),
-            Message = "FirstName is required."
+            Condition = String.IsNullOrWhiteSpace(namevalue),
+            Message = "Name is required."
         };
 
         private static void ValidatePersonIsNotNull(Person person)
