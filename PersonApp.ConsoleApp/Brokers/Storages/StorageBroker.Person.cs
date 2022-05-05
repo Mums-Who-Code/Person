@@ -2,12 +2,12 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System.Collections.Generic;
 using PersonApp.ConsoleApp.Models.Persons;
+using System.Collections.Generic;
 
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
-    internal partial class StorageBroker : IStorageBroker
+    public partial class StorageBroker : IStorageBroker
     {
         List<Person> Persons = new List<Person>();
 
@@ -16,8 +16,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
             Persons.Add(Person);
 
             return Person;
-
-       
         }
     }
 }
