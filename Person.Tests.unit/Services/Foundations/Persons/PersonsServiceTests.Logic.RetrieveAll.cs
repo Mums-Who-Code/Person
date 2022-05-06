@@ -33,9 +33,9 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             actualPersons.Should().BeEquivalentTo(expectedPersons);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.SelectAllPersons(), 
+                broker.SelectAllPersons(),
                    Times.Once);
-           
+
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
