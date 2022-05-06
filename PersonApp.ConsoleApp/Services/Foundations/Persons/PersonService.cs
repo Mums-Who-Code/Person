@@ -31,9 +31,9 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         });
 
         public List<Person> RetrieveAllPersons() =>
-            Trycatch(() =>
-            {
+        Trycatch(() =>
+        {
                 return this.storageBroker.SelectAllPersons();
-            });
+        });
     }
 }

@@ -12,7 +12,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public void ShouldThrowServiceExceptionOnRetrieveAllServiceErrorOccurredAndLogIt()
+        public void ShouldThrowServiceExceptionOnRetrieveAllIfServiceErrorOccurredAndLogIt()
         {
             //given
             var serviceException = new Exception();
