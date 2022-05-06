@@ -39,7 +39,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         private PersonvalidationException CreateAndLogValidationException(Xeption exception)
         {
             var personValidationException = new PersonvalidationException(exception);
-            this.loggingbroker.LogError(personValidationException);
+            this.loggingBroker.LogError(personValidationException);
 
             return personValidationException;
         }
@@ -47,7 +47,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         private PersonServiceException CreateAndLogServiceException(Xeption exception)
         {
             var personServiceException = new PersonServiceException(exception);
-            this.loggingbroker.LogError(personServiceException);
+            this.loggingBroker.LogError(personServiceException);
 
             return personServiceException;
         }

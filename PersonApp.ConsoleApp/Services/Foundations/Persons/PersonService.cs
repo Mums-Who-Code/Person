@@ -11,14 +11,14 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
     public partial class PersonService : IPersonService
     {
         private readonly IStorageBroker storageBroker;
-        private readonly ILoggingBroker loggingbroker;
+        private readonly ILoggingBroker loggingBroker;
 
         public PersonService(IStorageBroker storageBroker,
                              ILoggingBroker loggingBroker)
 
         {
             this.storageBroker = storageBroker;
-            this.loggingbroker = loggingBroker;
+            this.loggingBroker = loggingBroker;
         }
 
         public Person AddPerson(Person person) =>
