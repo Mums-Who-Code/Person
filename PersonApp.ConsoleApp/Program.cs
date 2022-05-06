@@ -2,6 +2,11 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using Microsoft.Extensions.Logging;
+using PersonApp.ConsoleApp.Brokers.Loggings;
+using PersonApp.ConsoleApp.Brokers.Storages;
+using PersonApp.ConsoleApp.Models.Persons;
+using PersonApp.ConsoleApp.Services.Foundations.Persons;
 using System;
 
 namespace PersonApp.ConsoleApp
@@ -10,7 +15,20 @@ namespace PersonApp.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var storageBroker = new StorageBroker();
+            var loggerFactory = new LoggerFactory();
+            var logger = new Logger<LoggingBroker>(loggerFactory);
+            var loggingBroker = new LoggingBroker(logger);
+            var personService = new PersonService(storageBroker, loggingBroker);
+
+            var inputPerson = new Person
+            {
+                Id = 24,
+                FirstName = "mmn",
+                LastName = "rjk"
+            };
+
+            personService.AddPerson(inputPerson);
         }
     }
 }
