@@ -5,6 +5,7 @@
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using System;
+using System.Collections.Generic;
 using Xeptions;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
@@ -12,6 +13,20 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
     public partial class PersonService
     {
         private delegate Person ReturningPersonFunction();
+        private delegate List<Person> ReturningPersonsFunction();
+
+        private List<Person> Trycatch(ReturningPersonsFunction returningPersonFunction)
+        {
+            try
+            {
+                return returningPersonFunction();
+            }
+            catch (Exception exception)
+            {
+                var failedPersonserviceException = new FailedPersonServiceException(exception);
+                throw CreateAndLogServiceException(failedPersonserviceException);
+            }
+        }
 
         private Person Trycatch(ReturningPersonFunction returningPersonFunction)
         {

@@ -8,6 +8,8 @@ using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using Tynamix.ObjectFiller;
 using Xeptions;
@@ -37,6 +39,12 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
               && actualException.InnerException.Message == expectedException.InnerException.Message
               && (actualException.InnerException as Xeption).DataEquals(expectedException.InnerException.Data);
         }
+
+        private static int GetRandomNumber() =>
+            new IntRange(min: 2, max: 10).GetValue();
+
+        private static List<Person> CreateRandomPersons() =>
+            CreatePersonFiller().Create(count: GetRandomNumber()).ToList();
 
         private Person CreateRandomPerson() =>
           CreatePersonFiller().Create();

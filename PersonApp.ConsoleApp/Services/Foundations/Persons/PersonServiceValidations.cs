@@ -16,8 +16,8 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             Validate(
                 (Rule: IsInvalid(person.Id), Parameter: nameof(Person.Id)),
-                (Rule: IsInvalid(namevalue:person.FirstName), Parameter: nameof(Person.FirstName)),
-                (Rule: IsInvalid(namevalue:person.LastName), Parameter: nameof(Person.LastName)));
+                (Rule: IsInvalid(namevalue: person.FirstName), Parameter: nameof(Person.FirstName)),
+                (Rule: IsInvalid(namevalue: person.LastName), Parameter: nameof(Person.LastName)));
         }
 
         private static dynamic IsInvalid(int id) => new

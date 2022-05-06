@@ -5,6 +5,7 @@
 using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
+using System.Collections.Generic;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
@@ -27,6 +28,12 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             ValidatePerson(person);
 
             return this.storageBroker.InsertPerson(person);
+        });
+
+        public List<Person> RetrieveAllPersons() =>
+        Trycatch(() =>
+        {
+                return this.storageBroker.SelectAllPersons();
         });
     }
 }
