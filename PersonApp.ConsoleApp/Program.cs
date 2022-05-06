@@ -7,7 +7,6 @@ using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
-using System;
 
 namespace PersonApp.ConsoleApp
 {

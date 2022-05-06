@@ -5,6 +5,7 @@
 using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
+using System.Collections.Generic;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {
@@ -28,5 +29,10 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return this.storageBroker.InsertPerson(person);
         });
+
+        public List<Person> RetrieveAllPersons()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
