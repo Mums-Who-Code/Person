@@ -17,5 +17,7 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
 
             return Person;
         }
+
+        public List<Person> SelectAllPersons() => Persons;
     }
 }
