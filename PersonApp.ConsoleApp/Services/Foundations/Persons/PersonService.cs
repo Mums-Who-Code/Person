@@ -33,7 +33,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         public List<Person> RetrieveAllPersons() =>
         Trycatch(() =>
         {
-                return this.storageBroker.SelectAllPersons();
+            return this.storageBroker.SelectAllPersons();
         });
     }
 }
