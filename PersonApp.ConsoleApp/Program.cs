@@ -7,6 +7,7 @@ using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
+using System.Collections.Generic;
 
 namespace PersonApp.ConsoleApp
 {
@@ -28,6 +29,16 @@ namespace PersonApp.ConsoleApp
             };
 
             personService.AddPerson(inputPerson);
+
+            inputPerson = new Person
+            {
+                Id = 5647,
+                FirstName = "Test Record",
+                LastName = "mnk"
+            };
+
+            personService.AddPerson(inputPerson);
+            List<Person> storedPersons = personService.RetrieveAllPersons();
         }
     }
 }
