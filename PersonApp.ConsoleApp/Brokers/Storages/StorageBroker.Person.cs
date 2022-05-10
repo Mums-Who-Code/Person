@@ -19,5 +19,8 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
         }
 
         public List<Person> SelectAllPersons() => Persons;
+
+        public Person SelectPersonById(int id) =>
+            Persons.Find(person => person.Id == id);
     }
 }
