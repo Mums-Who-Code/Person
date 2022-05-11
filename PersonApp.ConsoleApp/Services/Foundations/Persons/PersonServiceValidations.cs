@@ -20,6 +20,9 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
                 (Rule: IsInvalid(namevalue: person.LastName), Parameter: nameof(Person.LastName)));
         }
 
+        private static void validateInput(int id) =>
+          Validate((Rule: IsInvalid(id), Parameter: nameof(Person.Id)));
+
         private static dynamic IsInvalid(int id) => new
         {
             Condition = id == default,

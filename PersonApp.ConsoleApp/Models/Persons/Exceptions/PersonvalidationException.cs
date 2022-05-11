@@ -6,9 +6,9 @@ using Xeptions;
 
 namespace PersonApp.ConsoleApp.Models.Persons.Exceptions
 {
-    public class PersonvalidationException : Xeption
+    public class PersonValidationException : Xeption
     {
-        public PersonvalidationException(Xeption innerException)
+        public PersonValidationException(Xeption innerException)
          : base(message: "Person validation error occurred, fix the errors and try again.",
                innerException)
         { }

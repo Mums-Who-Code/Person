@@ -17,26 +17,27 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             invalidPersonException.AddData(
                 key: nameof(Person.Id),
-                      values: "Id is required");
+                values: "ID is required.");
+           
 
-            var expectedPersonvalidationException = 
-                new PersonvalidationException(invalidPersonException);
+            var expectedPersonValidationException = 
+                new PersonValidationException(invalidPersonException);
 
             //when
-            Action retrieveByIdAction = () =>
+            Action retrievePersonByIdAction = () =>
              this.personService.RetrievePersonById(invalidPerson.Id);
 
             //then
-            Assert.Throws<PersonvalidationException>(retrieveByIdAction);
+            Assert.Throws<PersonValidationException>(retrievePersonByIdAction);
 
             this.loggingBrokerMock.Verify(broker =>
                broker.LogError(It.Is(SameExceptionAs(
-                  expectedPersonvalidationException))),
+                  expectedPersonValidationException))),
                      Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
                broker.SelectPersonById(It.IsAny<int>()),
-                   Times.Once);
+                   Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();

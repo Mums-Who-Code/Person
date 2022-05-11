@@ -51,9 +51,9 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             }
         }
 
-        private PersonvalidationException CreateAndLogValidationException(Xeption exception)
+        private PersonValidationException CreateAndLogValidationException(Xeption exception)
         {
-            var personValidationException = new PersonvalidationException(exception);
+            var personValidationException = new PersonValidationException(exception);
             this.loggingBroker.LogError(personValidationException);
 
             return personValidationException;
