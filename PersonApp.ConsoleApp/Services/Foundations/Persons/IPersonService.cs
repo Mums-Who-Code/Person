@@ -11,5 +11,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
     {
         Person AddPerson(Person person);
         List<Person> RetrieveAllPersons();
+
+        Person RetrievePersonById(int id);
     }
 }

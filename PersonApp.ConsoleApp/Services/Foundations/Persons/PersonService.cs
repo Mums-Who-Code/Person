@@ -35,5 +35,9 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         {
             return this.storageBroker.SelectAllPersons();
         });
+
+        public Person RetrievePersonById(int id) =>
+         throw new System.NotImplementedException();
+        
     }
 }
