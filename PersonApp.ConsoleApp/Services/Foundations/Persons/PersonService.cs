@@ -38,6 +38,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
         public Person RetrievePersonById(int id) =>
          this.storageBroker.SelectPersonById(id);
-        
+
     }
 }

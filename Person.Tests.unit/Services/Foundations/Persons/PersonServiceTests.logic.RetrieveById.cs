@@ -2,11 +2,6 @@
 using Force.DeepCloner;
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
@@ -17,16 +12,16 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         public void ShouldRetrievePersonById()
         {
             //given
-            Person randomPerson=  CreateRandomPerson();
+            Person randomPerson = CreateRandomPerson();
             Person inputPerson = randomPerson;
             Person storageperson = inputPerson;
             Person expectedPerson = storageperson.DeepClone();
 
-            this.storageBrokerMock.Setup(broker=>
+            this.storageBrokerMock.Setup(broker =>
             broker.SelectPersonById(inputPerson.Id))
                 .Returns(storageperson);
             //when
-            Person actualPerson = 
+            Person actualPerson =
                 this.personService.RetrievePersonById(inputPerson.Id);
 
             //then
