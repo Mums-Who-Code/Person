@@ -42,7 +42,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             {
                 throw CreateAndLogValidationException(invalidPersonException);
             }
-            catch(ArgumentNullException argumentNullException)
+            catch (ArgumentNullException argumentNullException)
             {
                 var nullArgumentPersonException =
                     new NullArgumentPersonException(argumentNullException);
@@ -50,7 +50,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
                 throw CreateAndLogDependencyValidationException(
                      nullArgumentPersonException);
             }
-
             catch (Exception exception)
             {
                 var failedPersonServiceException =
@@ -68,14 +67,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             return personValidationException;
         }
 
-        private PersonServiceException CreateAndLogServiceException(Xeption exception)
-        {
-            var personServiceException = new PersonServiceException(exception);
-            this.loggingBroker.LogError(personServiceException);
-
-            return personServiceException;
-        }
-
         private PersonDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
         {
             var personDependencyValidationException = new PersonDependencyValidationException(exception);
@@ -83,6 +74,14 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return personDependencyValidationException;
 
+        }
+
+        private PersonServiceException CreateAndLogServiceException(Xeption exception)
+        {
+            var personServiceException = new PersonServiceException(exception);
+            this.loggingBroker.LogError(personServiceException);
+
+            return personServiceException;
         }
     }
 }

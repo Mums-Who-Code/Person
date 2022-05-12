@@ -5,10 +5,6 @@
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
@@ -28,7 +24,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             var expectedPersonDepencyValidationException =
                 new PersonDependencyValidationException(nullArgumentPersonException);
 
-            this.storageBrokerMock.Setup(broker=>
+            this.storageBrokerMock.Setup(broker =>
                 broker.SelectPersonById(It.IsAny<int>()))
                    .Throws(argumentNullException);
 
@@ -43,7 +39,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 broker.SelectPersonById(It.IsAny<int>()),
                    Times.Once());
 
-            this.loggingBrokerMock.Verify(broker=>
+            this.loggingBrokerMock.Verify(broker =>
                broker.LogError(It.Is(SameExceptionAs
                   (expectedPersonDepencyValidationException))),
                      Times.Once);

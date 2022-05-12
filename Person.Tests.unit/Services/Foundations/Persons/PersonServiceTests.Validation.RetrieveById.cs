@@ -1,4 +1,8 @@
-﻿using Moq;
+﻿// ------------------------------------------------
+// Copyright (c) MumsWhoCode. All rights reserved.
+// ------------------------------------------------
+
+using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using System;
@@ -18,14 +22,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             invalidPersonException.AddData(
                 key: nameof(Person.Id),
                 values: "ID is required.");
-           
 
-            var expectedPersonValidationException = 
+           var expectedPersonValidationException =
                 new PersonValidationException(invalidPersonException);
 
             //when
             Action retrievePersonByIdAction = () =>
-             this.personService.RetrievePersonById(invalidId);
+            this.personService.RetrievePersonById(invalidId);
 
             //then
             Assert.Throws<PersonValidationException>(retrievePersonByIdAction);
@@ -41,9 +44,6 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
-
-
         }
-
     }
 }
