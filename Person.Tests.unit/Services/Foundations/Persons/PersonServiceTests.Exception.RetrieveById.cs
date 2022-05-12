@@ -20,17 +20,17 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         {
             //given
             int somePersonId = GetRandomNumber();
-            var argumentnullException = new ArgumentNullException();
+            var argumentNullException = new ArgumentNullException();
 
             var nullArgumentPersonException =
-                 new NullArgumentPersonException(argumentnullException);
+                 new NullArgumentPersonException(argumentNullException);
 
             var expectedPersonDepencyValidationException =
                 new PersonDependencyValidationException(nullArgumentPersonException);
 
             this.storageBrokerMock.Setup(broker=>
                 broker.SelectPersonById(It.IsAny<int>()))
-                   .Throws(argumentnullException);
+                   .Throws(argumentNullException);
 
             //when
             Action retrievePersonByIdAction = () =>
