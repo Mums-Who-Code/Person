@@ -23,8 +23,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 key: nameof(Person.Id),
                 values: "ID is required.");
 
-           var expectedPersonValidationException =
-                new PersonValidationException(invalidPersonException);
+            var expectedPersonValidationException =
+                 new PersonValidationException(invalidPersonException);
 
             //when
             Action retrievePersonByIdAction = () =>

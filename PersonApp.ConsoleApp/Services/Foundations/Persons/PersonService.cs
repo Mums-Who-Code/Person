@@ -39,9 +39,9 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         public Person RetrievePersonById(int id) =>
         Trycatch(() =>
         {
-             validateInput(id);
+            validateInput(id);
 
-             return this.storageBroker.SelectPersonById(id);
+            return this.storageBroker.SelectPersonById(id);
         });
     }
 }

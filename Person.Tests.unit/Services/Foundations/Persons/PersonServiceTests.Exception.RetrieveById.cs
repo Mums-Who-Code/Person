@@ -47,5 +47,38 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldThrowServiceExceptionOnRetrieveByIdIfServiceExcpetionOccurredAndLogIt()
+        {
+            //given
+            int somePersonId = GetRandomNumber();
+            var serviceException = new Exception();
+
+            var faildPersonServiceException =
+                new FailedPersonServiceException(serviceException);
+
+            var excpectedPersonServiceException =
+                new PersonServiceException(faildPersonServiceException);
+
+            this.storageBrokerMock.Setup(broker =>
+               broker.SelectPersonById(It.IsAny<int>())).
+                   Throws(serviceException);
+
+            //when
+            Action retrieveByIdAction = () => this.personService.RetrievePersonById(somePersonId);
+
+            //then
+            Assert.Throws<PersonServiceException>(retrieveByIdAction);
+
+            this.storageBrokerMock.Verify(broker =>
+               broker.SelectPersonById(It.IsAny<int>()),
+                 Times.Once);
+
+            this.loggingBrokerMock.Verify(broker =>
+               broker.LogError(It.Is(SameExceptionAs
+                  (excpectedPersonServiceException))),
+                     Times.Once);
+        }
     }
 }
