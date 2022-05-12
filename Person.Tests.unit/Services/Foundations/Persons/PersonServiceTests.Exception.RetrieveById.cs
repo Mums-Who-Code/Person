@@ -79,6 +79,9 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                broker.LogError(It.Is(SameExceptionAs
                   (excpectedPersonServiceException))),
                      Times.Once);
+
+            this.storageBrokerMock.VerifyNoOtherCalls();
+            this.loggingBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
