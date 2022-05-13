@@ -39,6 +39,7 @@ namespace PersonApp.ConsoleApp
 
             personService.AddPerson(inputPerson);
             List<Person> storedPersons = personService.RetrieveAllPersons();
+            Person returningPerson = personService.RetrievePersonById(24);
         }
     }
 }
