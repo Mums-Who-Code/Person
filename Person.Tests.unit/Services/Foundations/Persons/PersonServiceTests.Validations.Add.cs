@@ -18,13 +18,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             // given
             Person nullPerson = null;
             var nullPersonException = new NullPersonException();
-            var exceptedPersonValidationException = new PersonvalidationException(nullPersonException);
+            var exceptedPersonValidationException = new PersonValidationException(nullPersonException);
 
             //when
             Action addPersonAction = () => this.personService.AddPerson(nullPerson);
 
             //then
-            Assert.Throws<PersonvalidationException>(addPersonAction);
+            Assert.Throws<PersonValidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
                broker.LogError(It.Is(SameExceptionAs
@@ -66,13 +66,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 key: nameof(Person.LastName),
                 values: "Name is required.");
 
-            var exceptedPersonvalidationException = new PersonvalidationException(invalidPersonException);
+            var exceptedPersonvalidationException = new PersonValidationException(invalidPersonException);
 
             //when 
             Action addPersonAction = () => this.personService.AddPerson(invalidPerson);
 
             //then
-            Assert.Throws<PersonvalidationException>(addPersonAction);
+            Assert.Throws<PersonValidationException>(addPersonAction);
 
             this.loggingBrokerMock.Verify(broker =>
                broker.LogError(It.Is(SameExceptionAs
