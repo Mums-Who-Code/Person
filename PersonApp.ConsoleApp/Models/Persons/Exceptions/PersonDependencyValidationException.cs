@@ -1,4 +1,8 @@
-﻿using Xeptions;
+﻿// ------------------------------------------------
+// Copyright (c) MumsWhoCode. All rights reserved.
+// ------------------------------------------------
+
+using Xeptions;
 
 namespace PersonApp.ConsoleApp.Models.Persons.Exceptions
 {

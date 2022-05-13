@@ -13,7 +13,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public void ShouldThrowValidationExceptionOnRetrieveByIdIsInvalid()
+        public void ShouldThrowValidationExceptionOnRetrieveByIfIdIsInvalid()
         {
             //given
             int invalidId = default;
@@ -28,7 +28,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             //when
             Action retrievePersonByIdAction = () =>
-            this.personService.RetrievePersonById(invalidId);
+              this.personService.RetrievePersonById(invalidId);
 
             //then
             Assert.Throws<PersonValidationException>(retrievePersonByIdAction);

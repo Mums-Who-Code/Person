@@ -49,7 +49,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         }
 
         [Fact]
-        public void ShouldThrowServiceExceptionOnRetrieveByIdIfServiceExcpetionOccurredAndLogIt()
+        public void ShouldThrowServiceExceptionOnRetrieveByIdIfServiceExceptionOccurredAndLogIt()
         {
             //given
             int somePersonId = GetRandomNumber();
@@ -76,8 +76,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                  Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
-               broker.LogError(It.Is(SameExceptionAs
-                  (excpectedPersonServiceException))),
+               broker.LogError(It.Is(SameExceptionAs(
+                  excpectedPersonServiceException))),
                      Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
