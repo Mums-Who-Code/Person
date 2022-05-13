@@ -27,7 +27,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             //when
             Person actualPerson =
-              this.personService.RetrievePersonById(inputPerson.Id);
+            this.personService.RetrievePersonById(inputPerson.Id);
 
             //then
             actualPerson.Should().BeEquivalentTo(expectedPerson);
