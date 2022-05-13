@@ -21,6 +21,14 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
         public List<Person> SelectAllPersons() => Persons;
 
         public Person SelectPersonById(int id) =>
-            Persons.Find(Person => Person.Id == id);
+            Persons.Find(person => person.Id == id);
+
+        public Person updatePerson(Person inputPerson)
+        {
+            Persons.RemoveAll(person => person.Id == inputPerson.Id);
+            Persons.Add(inputPerson);
+
+            return inputPerson;
+        }
     }
 }
