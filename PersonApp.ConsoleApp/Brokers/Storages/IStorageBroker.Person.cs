@@ -12,6 +12,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
         Person InsertPerson(Person Person);
         List<Person> SelectAllPersons();
         Person SelectPersonById(int id);
-        Person updatePerson(Person inputPerson);
+        Person UpdatePerson(Person inputPerson);
     }
 }
