@@ -39,5 +39,53 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public void ShouldThrowValidationExceptionOnModifyIfPersonIsInvalidAndLogIt(
+            string invalidText)
+        {
+            //given
+            var invalidPerson = new Person
+            {
+                FirstName = invalidText
+            };
+            var invalidPersonExpection = new InvalidPersonException();
+
+            invalidPersonExpection.AddData(
+                key: nameof(Person.Id),
+                values: "Id is required");
+
+            invalidPersonExpection.AddData(
+                key: nameof(Person.FirstName),
+                values: "name is required");
+
+            invalidPersonExpection.AddData(
+                key: nameof(Person.LastName),
+                values: "name is required");
+
+            var expectedPersonValidationException =
+                    new PersonValidationException(invalidPersonExpection);
+
+            //when
+            Action modifyPersonAction = () => this.personService.ModifyPerson(invalidPerson);
+
+            //then
+            Assert.Throws<PersonValidationException>(modifyPersonAction);
+
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedPersonValidationException))),
+                        Times.Once);
+
+            this.storageBrokerMock.Verify(broker =>
+                broker.UpdatePerson(invalidPerson),
+                    Times.Once);
+
+            this.loggingBrokerMock.VerifyNoOtherCalls();
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
