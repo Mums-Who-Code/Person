@@ -56,15 +56,15 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             invalidPersonExpection.AddData(
                 key: nameof(Person.Id),
-                values: "Id is required");
+                values: "ID is required.");
 
             invalidPersonExpection.AddData(
                 key: nameof(Person.FirstName),
-                values: "name is required");
+                values: "Name is required.");
 
             invalidPersonExpection.AddData(
                 key: nameof(Person.LastName),
-                values: "name is required");
+                values: "Name is required.");
 
             var expectedPersonValidationException =
                     new PersonValidationException(invalidPersonExpection);
@@ -81,8 +81,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                         Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.UpdatePerson(invalidPerson),
-                    Times.Once);
+                broker.UpdatePerson(It.IsAny<Person>()),
+                    Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();

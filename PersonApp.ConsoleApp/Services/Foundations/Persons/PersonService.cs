@@ -47,7 +47,7 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         public Person ModifyPerson(Person person) =>
         Trycatch(() =>
         {
-            ValidatePersonIsNotNull(person);
+            ValidatePerson(person);
 
             return this.storageBroker.UpdatePerson(person);
         });
