@@ -30,10 +30,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             return this.storageBroker.InsertPerson(person);
         });
 
-        public Person ModifyPerson(Person person) =>
-            throw new System.NotImplementedException();
-        
-
         public List<Person> RetrieveAllPersons() =>
         Trycatch(() =>
         {
@@ -47,5 +43,8 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return this.storageBroker.SelectPersonById(id);
         });
+
+        public Person ModifyPerson(Person person) =>
+            this.storageBroker.UpdatePerson(person);
     }
 }
