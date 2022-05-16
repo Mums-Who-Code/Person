@@ -5,11 +5,6 @@
 using FluentAssertions;
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
@@ -20,7 +15,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         public void ShouldModifyPerson()
         {
             //given
-            Person randomPerson=CreateRandomPerson();
+            Person randomPerson = CreateRandomPerson();
             Person inputPerson = randomPerson;
             Person modifiedPerson = inputPerson;
             Person expectedPerson = modifiedPerson;
@@ -30,7 +25,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                     .Returns(modifiedPerson);
 
             //when
-            Person actualPerson = 
+            Person actualPerson =
                 this.personService.ModifyPerson(inputPerson);
 
             //then
