@@ -45,6 +45,11 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         });
 
         public Person ModifyPerson(Person person) =>
-            this.storageBroker.UpdatePerson(person);
+        Trycatch(() =>
+        {
+            ValidatePersonIsNotNull(person);
+
+            return this.storageBroker.UpdatePerson(person);
+        });
     }
 }

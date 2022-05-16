@@ -34,7 +34,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.storageBrokerMock.Verify(broker =>
                 broker.UpdatePerson(It.IsAny<Person>()),
-                    Times.Once);
+                    Times.Never);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
