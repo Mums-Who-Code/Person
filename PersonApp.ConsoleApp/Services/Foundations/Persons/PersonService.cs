@@ -30,6 +30,10 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
             return this.storageBroker.InsertPerson(person);
         });
 
+        public Person ModifyPerson(Person person) =>
+            throw new System.NotImplementedException();
+        
+
         public List<Person> RetrieveAllPersons() =>
         Trycatch(() =>
         {
