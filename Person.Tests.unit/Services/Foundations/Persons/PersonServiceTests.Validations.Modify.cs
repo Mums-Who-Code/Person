@@ -17,7 +17,9 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
         {
             //given
             Person nullPerson = null;
+
             var nullPersonExpection = new NullPersonException();
+
             var expectedPersonValidationException =
                 new PersonValidationException(nullPersonExpection);
 
@@ -52,6 +54,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             {
                 FirstName = invalidText
             };
+
             var invalidPersonExpection = new InvalidPersonException();
 
             invalidPersonExpection.AddData(

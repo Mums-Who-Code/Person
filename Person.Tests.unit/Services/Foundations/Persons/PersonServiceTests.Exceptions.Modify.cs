@@ -49,8 +49,6 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
         }
 
-
-
         [Fact]
         public void ShouldThrowServiceExceptionOnModifyIfServiceExceptionOccursAndLogIt()
         {
@@ -58,10 +56,10 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Person somePerson = CreateRandomPerson();
             var serviceException = new Exception();
 
-            var failedPersonException = 
+            var failedPersonException =
                 new FailedPersonServiceException(serviceException);
 
-            var expectedPersonServiceException = 
+            var expectedPersonServiceException =
                 new PersonServiceException(failedPersonException);
 
             this.storageBrokerMock.Setup(broker =>
@@ -77,7 +75,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             this.storageBrokerMock.Verify(broker =>
                 broker.UpdatePerson(It.IsAny<Person>()),
                     Times.Once);
-           
+
             this.loggingBrokerMock.Verify(broker =>
                 broker.LogError(It.Is(SameExceptionAs(
                     expectedPersonServiceException))),
