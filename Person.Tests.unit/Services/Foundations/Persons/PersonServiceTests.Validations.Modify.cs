@@ -13,7 +13,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
     public partial class PersonServiceTests
     {
         [Fact]
-        public void ShouldThrowValidateExceptionOnModifyIfPersonIsNulAndLogIt()
+        public void ShouldThrowValidateExceptionOnModifyIfPersonIsNullAndLogIt()
         {
             //given
             Person nullPerson = null;
@@ -52,7 +52,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             //given
             var invalidPerson = new Person
             {
-                FirstName = invalidText
+                FirstName = invalidText,
+                LastName = invalidText,
             };
 
             var invalidPersonExpection = new InvalidPersonException();
@@ -70,7 +71,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                 values: "Name is required.");
 
             var expectedPersonValidationException =
-                    new PersonValidationException(invalidPersonExpection);
+                new PersonValidationException(invalidPersonExpection);
 
             //when
             Action modifyPersonAction = () => this.personService.ModifyPerson(invalidPerson);

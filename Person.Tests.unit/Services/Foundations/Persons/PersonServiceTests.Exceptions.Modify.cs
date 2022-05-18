@@ -22,13 +22,13 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             var nullArgumentPersonException =
                 new NullArgumentPersonException(argumentNullException);
 
-
             var expectedPersonDependencyValidationException =
                 new PersonDependencyValidationException(nullArgumentPersonException);
 
             this.storageBrokerMock.Setup(broker =>
                 broker.UpdatePerson(It.IsAny<Person>())).
                     Throws(argumentNullException);
+
             //when
             Action modifyPersonException = () => this.personService.ModifyPerson(somePerson);
 
@@ -40,8 +40,8 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
                     Times.Once);
 
             this.loggingBrokerMock.Verify(broker =>
-                broker.LogError(It.Is(SameExceptionAs
-                    (expectedPersonDependencyValidationException))),
+                broker.LogError(It.Is(SameExceptionAs(
+                    expectedPersonDependencyValidationException))),
                         Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
