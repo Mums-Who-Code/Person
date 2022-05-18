@@ -3,9 +3,9 @@
 // ------------------------------------------------
 
 using System;
+using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
-using Moq;
 using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
