@@ -2,10 +2,10 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using Moq;
+using System;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
-using System;
+using Moq;
 using Xunit;
 
 namespace PersonApp.Tests.unit.Services.Foundations.Persons
