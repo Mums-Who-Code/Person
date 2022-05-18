@@ -43,5 +43,13 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 
             return this.storageBroker.SelectPersonById(id);
         });
+
+        public Person ModifyPerson(Person person) =>
+        Trycatch(() =>
+        {
+            ValidatePerson(person);
+
+            return this.storageBroker.UpdatePerson(person);
+        });
     }
 }
