@@ -46,7 +46,6 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
 
             this.storageBrokerMock.VerifyNoOtherCalls();
             this.loggingBrokerMock.VerifyNoOtherCalls();
-
         }
 
         [Fact]
