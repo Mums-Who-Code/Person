@@ -46,7 +46,6 @@ namespace PersonApp.ConsoleApp
                 Id = 24,
                 FirstName ="ritu",
                 LastName ="rjk"
-               
             };
 
            Person modifiedPerson = personService.ModifyPerson(inputPerson);
