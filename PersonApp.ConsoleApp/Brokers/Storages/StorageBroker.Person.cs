@@ -10,14 +10,14 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
     public partial class StorageBroker : IStorageBroker
     {
         List<Person> Persons = new List<Person>();
-
+        
         public Person InsertPerson(Person Person)
         {
             Persons.Add(Person);
 
             return Person;
         }
-
+        
         public List<Person> SelectAllPersons() => Persons;
 
         public Person SelectPersonById(int id) =>
@@ -29,6 +29,13 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
             Persons.Add(inputPerson);
 
             return inputPerson;
+        }
+
+        public Person DeletePerson(Person person)
+        {
+            Persons.Remove(person);
+
+            return person;
         }
     }
 }
