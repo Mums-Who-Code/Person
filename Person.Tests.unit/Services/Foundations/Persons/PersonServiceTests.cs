@@ -3,14 +3,14 @@
 // ------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using Moq;
 using PersonApp.ConsoleApp.Brokers.Loggings;
 using PersonApp.ConsoleApp.Brokers.Storages;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Services.Foundations.Persons;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using Tynamix.ObjectFiller;
 using Xeptions;
 

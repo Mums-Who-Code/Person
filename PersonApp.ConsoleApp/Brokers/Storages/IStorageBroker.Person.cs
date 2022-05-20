@@ -2,8 +2,8 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using PersonApp.ConsoleApp.Models.Persons;
 using System.Collections.Generic;
+using PersonApp.ConsoleApp.Models.Persons;
 
 namespace PersonApp.ConsoleApp.Brokers.Storages
 {
@@ -13,5 +13,6 @@ namespace PersonApp.ConsoleApp.Brokers.Storages
         List<Person> SelectAllPersons();
         Person SelectPersonById(int id);
         Person UpdatePerson(Person inputPerson);
+        Person DeletePerson(Person person);
     }
 }

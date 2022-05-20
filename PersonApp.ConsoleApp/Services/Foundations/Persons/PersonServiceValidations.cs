@@ -2,9 +2,9 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
+using System;
 using PersonApp.ConsoleApp.Models.Persons;
 using PersonApp.ConsoleApp.Models.Persons.Exceptions;
-using System;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
 {

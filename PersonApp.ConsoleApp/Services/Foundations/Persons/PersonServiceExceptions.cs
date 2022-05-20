@@ -2,10 +2,10 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using PersonApp.ConsoleApp.Models.Persons;
-using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using System;
 using System.Collections.Generic;
+using PersonApp.ConsoleApp.Models.Persons;
+using PersonApp.ConsoleApp.Models.Persons.Exceptions;
 using Xeptions;
 
 namespace PersonApp.ConsoleApp.Services.Foundations.Persons
