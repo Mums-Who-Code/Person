@@ -53,6 +53,11 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         });
 
         public Person RemovePerson(Person person) =>
-            this.storageBroker.DeletePerson(person);
+        Trycatch(() =>
+        { 
+             ValidatePersonIsNotNull(person);
+
+             return this.storageBroker.DeletePerson(person);
+        });
     }
 }
