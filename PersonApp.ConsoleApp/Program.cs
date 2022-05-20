@@ -44,11 +44,11 @@ namespace PersonApp.ConsoleApp
             inputPerson = new Person()
             {
                 Id = 24,
-                FirstName ="ritu",
-                LastName ="rjk"
+                FirstName = "ritu",
+                LastName = "rjk"
             };
 
-           Person modifiedPerson = personService.ModifyPerson(inputPerson);
+            Person modifiedPerson = personService.ModifyPerson(inputPerson);
         }
     }
 }

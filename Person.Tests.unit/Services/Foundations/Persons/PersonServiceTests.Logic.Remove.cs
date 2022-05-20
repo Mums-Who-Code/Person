@@ -2,11 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // ------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Force.DeepCloner;
 using Moq;
@@ -36,7 +31,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             //then
             actualPerson.Should().BeEquivalentTo(expectedPerson);
 
-            this.storageBrokerMock.Verify(broker => 
+            this.storageBrokerMock.Verify(broker =>
                 broker.DeletePerson(inputPerson),
                     Times.Once);
 
