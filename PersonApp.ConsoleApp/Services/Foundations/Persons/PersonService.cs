@@ -53,6 +53,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         });
 
         public Person RemovePerson(Person person) =>
-            throw new System.NotImplementedException();
+            this.storageBroker.DeletePerson(person);
     }
 }

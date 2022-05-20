@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Force.DeepCloner;
 using Moq;
 using PersonApp.ConsoleApp.Models.Persons;
 using Xunit;
@@ -23,7 +24,7 @@ namespace PersonApp.Tests.unit.Services.Foundations.Persons
             Person randomPerson = CreateRandomPerson();
             Person inputPerson = randomPerson;
             Person deletedPerson = inputPerson;
-            Person expectedPerson = deletedPerson;
+            Person expectedPerson = deletedPerson.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
                 broker.DeletePerson(inputPerson)).
