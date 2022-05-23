@@ -13,5 +13,6 @@ namespace PersonApp.ConsoleApp.Services.Foundations.Persons
         List<Person> RetrieveAllPersons();
         Person RetrievePersonById(int id);
         Person ModifyPerson(Person person);
+        Person RemovePerson(Person person);
     }
 }
