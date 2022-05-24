@@ -57,7 +57,7 @@ namespace PersonApp.ConsoleApp
                 LastName ="jjk"
             };
 
-            Person deletedSample = personService.RemovePerson(inputPerson);
+            Person deletedPerson = personService.RemovePerson(inputPerson);
         }
     }
 }
