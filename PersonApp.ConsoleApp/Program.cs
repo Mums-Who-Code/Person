@@ -49,6 +49,15 @@ namespace PersonApp.ConsoleApp
             };
 
             Person modifiedPerson = personService.ModifyPerson(inputPerson);
+
+            inputPerson = new Person
+            {
+                Id = 0,
+                FirstName = "Record to be deleted",
+                LastName ="jjk"
+            };
+
+            Person deletedSample = personService.RemovePerson(inputPerson);
         }
     }
 }
